@@ -1,0 +1,27 @@
+/* Report a Problem button custom CSS - start */
+.report-e-resource-button.md-button {
+    background-color: #660099;
+    color: white;
+    text-transform: inherit;
+}
+
+.report-e-resource-button:hover:not([disabled]) {
+    color: white;
+    background-color: rgba(102, 0, 153, .5);
+}
+
+.report-e-resource-button:focus:not([disabled]) {
+    color: white;
+    background-color: rgba(102, 0, 153, .8);
+}
+
+md-toast, md-toast.md-default-theme {
+    background-color: transparent;
+}
+
+md-toast div.md-toast-content {
+    background-color: #660099;
+    color: white;
+    font-weight: 400;
+}
+/* Report a Problem button custom CSS - end */

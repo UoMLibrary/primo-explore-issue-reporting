@@ -1,0 +1,51 @@
+<!-- This is the html form template -start -->
+<contact-form button-text="Report a Problem" login-required="false" item="$ctrl.item" user="$ctrl.user" display-form="$ctrl.displayForm" display-button="$ctrl.displayButton">
+
+    <form name="userForm">
+        <div layout="row" class="layout-row">
+            <md-input-container class="md-block">
+                <label>Name</label>
+                <input placeholder="Joe Bloggs" data-ng-disabled="$ctrl.user.spotID" required ng-model="$ctrl.user.name">
+            </md-input-container>
+        </div>
+        <div layout="row" class="layout-row">
+            <md-input-container class="md-block">
+                <label>Email</label>
+                <input data-ng-if="!$ctrl.user.spotID" required placeholder="joe.bloggs@manchester.ac.uk" type="email" name="userEmail" ng-model="$ctrl.user.email"
+                       ng-pattern="/^.+@.+\..+$/"/>
+                <input disabled data-ng-if="$ctrl.user.spotID" required type="email" name="userEmail" ng-model="$ctrl.user.email"
+                ng-pattern="/^.+@.+\..+$/"/>
+            </md-input-container>
+        </div>
+        <div layout="row" class="layout-row">
+            <md-input-container class="md-block">
+                <label>Title</label>
+                <input ng-model="$ctrl.item.pnx.display.title" disabled>
+            </md-input-container>
+        </div>
+        <div layout="row" class="layout-row">
+            <md-input-container class="md-block">
+                <label>Item ID</label>
+                <input ng-model="$ctrl.item.pnx.control.sourcerecordid" disabled>
+            </md-input-container>
+        </div>
+        <div layout="row" class="layout-row">
+            <md-input-container class="md-block">
+                <label>Author</label>
+                <input ng-if="$ctrl.item.pnx.sort.author" ng-model="$ctrl.item.pnx.sort.author" disabled>
+            </md-input-container>
+        </div>
+        <div layout="row" class="layout-row">
+            <md-input-container class="md-block">
+                <label>Description</label>
+                <textarea name="description" required placeholder="Description of the problem" style="height: 3em;" ng-model="$ctrl.description"></textarea>
+            </md-input-container>
+        </div>
+        <div layout="row" class="layout-row">
+            <div vc-recaptcha key="'Insert Your Captcha Public Key Here Or Remove if you do not wish to use Captcha'" ng-model="$ctrl.captcha"
+                 class="dialog-captcha"></div>
+        </div>
+    </form>
+    <md-button data-ng-disabled="userForm.$pristine || userForm.$invalid" style="font-weight: 400; font-size: 16px; float:right;" class="report-e-resource-button" ng-click="submitForm()" class="md-primary">Submit</md-button>
+</contact-form>
+<!-- This is the html form template -end -->
